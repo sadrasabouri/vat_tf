@@ -130,14 +130,9 @@ def main(_):
 
             init_op = tf.global_variables_initializer()
 
-        if not FLAGS.log_dir:
-            logdir = None
-            writer_train = None
-            writer_test = None
-        else:
-            logdir = FLAGS.log_dir
-            writer_train = tf.summary.FileWriter(FLAGS.log_dir + "/train", g)
-            writer_test = tf.summary.FileWriter(FLAGS.log_dir + "/test", g)
+        logdir = None
+        writer_train = None
+        writer_test = None
 
         saver = tf.train.Saver(tf.global_variables())
         sv = tf.train.Supervisor(
