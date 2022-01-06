@@ -192,7 +192,7 @@ def main(_):
                     act_values_dict = {}
                     for key, _ in losses_eval_test.items():
                         act_values_dict[key] = 0
-                    n_iter_per_epoch = NUM_EVAL_EXAMPLES / FLAGS.eval_batch_size
+                    n_iter_per_epoch = int(NUM_EVAL_EXAMPLES / FLAGS.eval_batch_size)
                     for i in range(n_iter_per_epoch):
                         values = list(losses_eval_test.values())
                         act_values = sess.run(values)
