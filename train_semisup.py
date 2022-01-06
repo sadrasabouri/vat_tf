@@ -177,6 +177,7 @@ def main(_):
                     n_iter_per_epoch = int(NUM_EVAL_EXAMPLES / FLAGS.eval_batch_size)
                     for i in range(n_iter_per_epoch):
                         values = losses_eval_train.values()
+                        print(values)
                         act_values = sess.run(values)
                         for key, value in zip(act_values_dict.keys(), act_values):
                             act_values_dict[key] += value
