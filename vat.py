@@ -31,6 +31,8 @@ def forward(x, is_training=True, update_batch_stats=True, seed=1234):
 
 
 def get_normalized_vector(d):
+    print(d)
+    print(d.get_shape())
     d /= (1e-12 + tf.reduce_max(tf.abs(d), range(1, len(d.get_shape())), keep_dims=True))
     d /= tf.sqrt(1e-6 + tf.reduce_sum(tf.pow(d, 2.0), range(1, len(d.get_shape())), keep_dims=True))
     return d
