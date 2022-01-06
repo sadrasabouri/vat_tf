@@ -1,5 +1,4 @@
 import tensorflow.compat.v1 as tf
-tf.disable_v2_behavior()
 import numpy
 import sys, os
 
@@ -75,7 +74,7 @@ def bn(x, dim, is_training=True, update_batch_stats=True, collections=None, name
 def fc(x, dim_in, dim_out, seed=None, name='fc'):
     num_units_in = dim_in
     num_units_out = dim_out
-    weights_initializer = tf.contrib.layers.variance_scaling_initializer(seed=seed)
+    weights_initializer = tf.keras.initializers.VarianceScaling(seed=seed)
 
     weights = tf.get_variable(name + '_W',
                             shape=[num_units_in, num_units_out],
@@ -89,7 +88,7 @@ def fc(x, dim_in, dim_out, seed=None, name='fc'):
 
 def conv(x, ksize, stride, f_in, f_out, padding='SAME', use_bias=False, seed=None, name='conv'):
     shape = [ksize, ksize, f_in, f_out]
-    initializer = tf.contrib.layers.variance_scaling_initializer(seed=seed)
+    initializer = tf.keras.initializers.VarianceScaling(seed=seed)
     weights = tf.get_variable(name + '_W',
                             shape=shape,
                             dtype='float',
