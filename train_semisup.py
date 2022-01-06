@@ -12,7 +12,6 @@ tf.app.flags.DEFINE_string('device', '/gpu:0', "device")
 
 tf.app.flags.DEFINE_string('dataset', 'cifar10', "{cifar10, svhn}")
 
-tf.app.flags.DEFINE_string('log_dir', "", "log_dir")
 tf.app.flags.DEFINE_integer('seed', 1, "initial random seed")
 tf.app.flags.DEFINE_bool('validation', False, "")
 

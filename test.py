@@ -12,7 +12,6 @@ tf.app.flags.DEFINE_string('device', '/gpu:0', "device")
 
 tf.app.flags.DEFINE_string('dataset', 'cifar10', "{cifar10, svhn}")
 
-tf.app.flags.DEFINE_string('log_dir', "", "log_dir")
 tf.app.flags.DEFINE_bool('validation', False, "")
 
 tf.app.flags.DEFINE_integer('finetune_batch_size', 100, "the number of examples in a batch")
