@@ -14,7 +14,7 @@ import pickle
 from six.moves import xrange  # pylint: disable=redefined-builtin
 from six.moves import urllib
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from dataset_utils import *
 
 DATA_URL_TRAIN = 'http://ufldl.stanford.edu/housenumbers/train_32x32.mat'
