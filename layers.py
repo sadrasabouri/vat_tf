@@ -142,6 +142,13 @@ def kl_divergence_with_logit(q_logit, p_logit):
     return qlogq - qlogp
 
 
+def inverse_kl_divergence_with_logit(q_logit, p_logit):
+    p = tf.nn.softmax(p_logit)
+    plogq = tf.reduce_mean(tf.reduce_sum(p * logsoftmax(q_logit), 1))
+    plogp = tf.reduce_mean(tf.reduce_sum(p * logsoftmax(p_logit), 1))
+    return plogp - plogq
+
+
 def entropy_y_x(logit):
     p = tf.nn.softmax(logit)
     return -tf.reduce_mean(tf.reduce_sum(p * logsoftmax(logit), 1))
